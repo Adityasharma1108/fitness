@@ -19,11 +19,12 @@ const Auth = ({ onAuthSuccess }) => {
     e.preventDefault();
     setErrorMessage(''); // Purani errors clear karein
 
-    const BASE_URL = 'http://localhost:5000';
+    // Live Render Backend URL Updated Here! 🚀
+    const BASE_URL = 'https://fitness-8x03.onrender.com';
 
     try {
       if (isLogin) {
-        // 1. Localhost Login API Request
+        // 1. Live Render Login API Request
         const response = await axios.post(`${BASE_URL}/api/auth/login`, {
           email: formData.email,
           password: formData.password
@@ -43,7 +44,7 @@ const Auth = ({ onAuthSuccess }) => {
           setErrorMessage('Server authentication tokens are missing. Please recheck schema.');
         }
       } else {
-        // 2. Localhost Signup API Request
+        // 2. Live Render Signup API Request
         const response = await axios.post(`${BASE_URL}/api/auth/signup`, {
           name: formData.name,
           email: formData.email,
@@ -61,7 +62,7 @@ const Auth = ({ onAuthSuccess }) => {
       setErrorMessage(
         err.response?.data?.message || 
         err.response?.data || 
-        'Something went wrong! Please check VS Code backend terminal terminal for 500 error logs.'
+        'Something went wrong! Please try again.'
       );
     }
   };
