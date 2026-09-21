@@ -19,7 +19,7 @@ app.use('/api/videos', require('./routes/videoRoutes'));
 
 // NAYI LINES — React build serve karne ke liye
 app.use(express.static(path.join(__dirname, '../reactapp/build')));
-app.get('*', (req, res) => {
+app.get('/*splat', (req, res) => {
   res.sendFile(path.join(__dirname, '../reactapp/build', 'index.html'));
 });
 
